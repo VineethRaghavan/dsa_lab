@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node {
+struct node {
   int data;
   struct node *next;
   struct node *prev;
-} * N;
+};
+
+typedef struct node *N;
 
 void display(N head) {
   N temp = head;
@@ -54,10 +56,12 @@ void insert_end(N *head, int data) {
   N temp = *head;
   if (temp == NULL)
     temp = newnode;
-  while (temp->next != NULL)
-    temp = temp->next;
-  temp->next = newnode;
-  newnode->prev = temp;
+  else {
+    while (temp->next != NULL)
+      temp = temp->next;
+    temp->next = newnode;
+    newnode->prev = temp;
+  }
   display(*head);
 }
 
@@ -98,6 +102,7 @@ void delete_pos(N *head, int pos) {
       temp = temp->next;
     del = temp->next;
     temp->next = temp->next->next;
+    temp->next->prev = temp;
     free(del);
   }
   display(*head);
