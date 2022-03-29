@@ -93,7 +93,7 @@ void infixtoprefix(char infix[], char prefix[]) {
 int main() {
   char infix[30], prefix[30];
   stack[++top] = '#';
-  printf("Enter infix operation: ");
+  printf("Enter infix expression: ");
   fgets(infix, 30, stdin);
   reverse(infix);
   infixtoprefix(infix, prefix);
