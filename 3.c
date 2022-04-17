@@ -6,8 +6,6 @@
 char stack[MAX];
 int top = -1;
 
-//--------------------------------------------------------
-////--------------------------------------------------------
 void reverse(char array[]) {
   int i, n;
   char t;
@@ -18,11 +16,11 @@ void reverse(char array[]) {
     array[n - i - 1] = t;
   }
 }
-//--------------------------------
+
 char pop() { return stack[top--]; }
-//----------------------------------
+
 void push(char symbol) { stack[++top] = symbol; }
-//------------------------------------------
+
 int prcd(char symbol) {
   switch (symbol) {
   case '+':
@@ -46,7 +44,7 @@ int prcd(char symbol) {
     break;
   }
 }
-//-------------------------------------------------
+
 int isOperator(char symbol) {
   switch (symbol) {
   case '+':
@@ -60,7 +58,6 @@ int isOperator(char symbol) {
     break;
   default:
     return 0;
-    // returns 0 if the symbol is other than given above
   }
 }
 
